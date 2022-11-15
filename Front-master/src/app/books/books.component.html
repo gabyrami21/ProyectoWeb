@@ -1,0 +1,21 @@
+
+<div class="container mt-4 vj-destacados">
+  <div class="row">
+    <div *ngFor="let book of books" class="col-md-3 mb-4">
+      <div class="card h-100">
+        <img [src]="book.imageUrl" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{book.name}}</h5>
+          <p>
+            <a (click)="searchBooksByEditorial(book)" class="badge text-bg-info" [text]=""></a>
+          </p>
+          <p class="card-text">{{book.description}}</p>
+        </div>
+
+        <div class="card-footer text.muted">
+          <a href="#" class="btn btn-primary">Detalle</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<nav class="navbar navbar-dark bg-dark px-2" style="background-color: darkslategray">
+  <div class="container-fluid">
+    <a class="fa-solid fa-book-open-reader" routerLink="/" (click)="reiniciarPag()">   LIBRERIA NACIONAL</a>
+
+
+
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+
+
+        </li>
+      </ul>
+
+    <form class="d-flex me-5" #searchForm="ngForm" (ngSubmit)="buscar(searchForm)">
+      <input class="form-control me-2"type="search"placeholder="Buscar Libro" style="align-content: center" name="filter" #filter=ngModel [(ngModel)]="reinicio">
+      <button class="btn btn-outline-light" type="submit" style="background-color: #00BFFF">Buscar </button>
+    </form>
+
+
+    <div class="profile-logo dropstart">
+      <button class="btn btn-outline-light dropdown-toggle " type="button" id="botondesplegable" data-bs-toggle="dropdown" aria-expanded="false" style="width:100px" >
+        Usuario
+      </button>
+
+      <ul class="dropdown-menu dropdown-menu-dark"style="background-color: gray" aria-labelledby="botondesplegable">
+        <li><a class="dropdown-item" href="#">Listar</a> </li>
+        <li><a class="dropdown-item" href="#">Crear</a> </li>
+        <li><a class="dropdown-item" href="#">Modificar</a> </li>
+        <li><a class="dropdown-item" href="#">Eliminar</a> </li>
+      </ul>
+
+      <button class="btn btn-outline-light dropdown-toggle " type="button" id="botondesplegable" data-bs-toggle="dropdown" aria-expanded="false" style="width:100px" >
+        Libro
+      </button>
+      <a routerLink="/login" class="btn btn-primary" role="button" style="background-color: #00BFFF">
+        Iniciar Sesión
+      </a>
+
+      <ul class="dropdown-menu dropdown-menu-dark"style="background-color: gray" aria-labelledby="botondesplegable">
+        <li><a class="dropdown-item" href="#">Crear</a> </li>
+        <li><a class="dropdown-item" href="#">Modificar</a> </li>
+        <li><a class="dropdown-item" href="#">Eliminar</a> </li>
+      </ul>
+
+    </div>
+  </div>
+
+
+</nav>
+

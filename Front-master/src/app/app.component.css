@@ -1,0 +1,12 @@
+footer{
+  background-image: linear-gradient(to right,#00BFFF,#01DF3A);
+  padding: 1em 0;
+  text-align: center;
+  position: center;
+  bottom: 0;
+  width: 100%;
+  align-self: center;
+  height: 85px;
+
+
+}
