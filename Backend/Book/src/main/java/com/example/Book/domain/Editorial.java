@@ -2,6 +2,11 @@ package com.example.Book.domain;
 
 import javax.persistence.*;
 
+/** Rperesenta una editorial
+ * @autor Gabriela Ramirez
+ * @author Laura Rozo
+ *
+ */
 @Entity
 @Table(name = "editorial")
 public class Editorial {

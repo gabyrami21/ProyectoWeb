@@ -20,12 +20,14 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private final String SECRET = "mySecretKey";
 
 
-    /*
-    Entradas: Http parametros
-    Salidas: --
-    Función: Recupera el token para que se determina si el cliente tiene los permisos.
-    Primero se revisa si hay un token lo verifica y agrega la configuración para autorizar la petición
+    /**Recupera el token para que se determina si el cliente tiene los permisos.
+     Primero se revisa si hay un token lo verifica y agrega la configuración para autorizar la petición
+     * @param request
+     * @param response
+     * @param chain
+     * Son parametros de httpServelet
      */
+
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
         try {
@@ -47,10 +49,8 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         }
     }
 
-    /*
-    *  Entradas: Http request
-    *  Salidas: la verificación del login
-    *  Funciones: Este método verifica el token
+    /** Este método verifica el token
+    * @param request la petición
     * */
     private Claims validateToken(HttpServletRequest request) {
         String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");

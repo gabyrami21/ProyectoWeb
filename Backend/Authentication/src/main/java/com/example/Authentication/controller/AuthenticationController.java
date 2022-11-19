@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
-//Clase donde se implementan los métodos declarados en el
+/** Representa el controlador de iniciar sesion
+ * @author Gabriela Ramirez
+ * @author Laura Rozo
+ */
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
@@ -17,10 +20,10 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService authService;
 
-    /*
-    Entradas:URL para poder iniciar sesión
-    Salidas:Retorna el usuario logeado
-    Función: Realiza el inicio de sesión del usuario
+    /** Función: Realiza el inicio de sesión del usuario
+    * @ Entradas:URL para poder iniciar sesión
+    * @ Salidas:Retorna el usuario logeado
+    *
      */
     @PostMapping("login")
     public UserAuth login(@RequestParam("user") String username, @RequestParam("password") String pwd) {

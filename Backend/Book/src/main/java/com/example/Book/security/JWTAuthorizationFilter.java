@@ -19,10 +19,12 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
     private final String PREFIX = "Bearer ";
     private final String SECRET = "mySecretKey";
 
-    /*
-    Entradas: http parameters
-    Salidas: Permisos
-    Función: Recuperar el token y determinar si el cliente tiene permisos o no.
+    /**Recupera el token para que se determina si el cliente tiene los permisos.
+     Primero se revisa si hay un token lo verifica y agrega la configuración para autorizar la petición
+     * @param request
+     * @param response
+     * @param chain
+     * Son parametros de httpServelet
      */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
@@ -45,17 +47,15 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         }
     }
 
-    /*
-    Entradas: http request
-    Salidas: La asignación de la key
-    Función: Validación del token
-     */
+    /** Este método verifica el token
+     * @param request la petición
+     * */
     private Claims validateToken(HttpServletRequest request) {
         String jwtToken = request.getHeader(HEADER).replace(PREFIX, "");
         return Jwts.parser().setSigningKey(SECRET.getBytes()).parseClaimsJws(jwtToken).getBody();
     }
 
-  /*
+  /**
     Entradas: claim
     Salida: --
     Función: Autoriza el usuario
@@ -70,10 +70,9 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
 
     }
 
-    /*
-    Entradas: http parameters
-    Salidas: booleano si se chequeo o no
-    Función: Revisa el JWT token
+    /**  Revisa el JWT token
+    @Entradas: http parameterss
+    @Salidas: booleano si se chequeo o no
      */
     private boolean checkJWTToken(HttpServletRequest request, HttpServletResponse res) {
         String authenticationHeader = request.getHeader(HEADER);

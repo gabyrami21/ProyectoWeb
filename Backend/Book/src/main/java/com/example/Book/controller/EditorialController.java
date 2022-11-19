@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.NoSuchElementException;
-
+/** Representa el controlador de una editorial
+ * @author Gabriela Ramirez
+ * @autor Laura Rozo
+ */
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class EditorialController{
@@ -20,21 +23,19 @@ public class EditorialController{
             this.editorialService = editorialService;
         }
 
-        /*
-        Entradas: url
-        Salidas: lista de editoriales
-        Función: Obtiene una lista de todas las editoriales que hay
+        /**  Obtiene una lista de todas las editoriales que hay
+        @Entradas: url
+        @Salidas: lista de editoriales
          */
         @GetMapping("/public/editorial")
         public List<Editorial> list() {
             return editorialService.listAll();
         }
 
-        /*
-        Entradas: url
-        Salidas: Respuesta de que si encontro la editorial
-        Función: Obtiene una editorial dado un id
-         */
+        /** Función: Obtiene una editorial dado un id
+        @Entradas: url
+        @Salidas: Respuesta de que si encontro la editorial
+        */
         @GetMapping("/public/editorial/{id}")
         public ResponseEntity<Editorial> get(@PathVariable Integer id) {
             try {
@@ -46,20 +47,18 @@ public class EditorialController{
             }
         }
 
-        /*
-        Entradas: url
-        Salidas:--
-        Función: Crea una editorial
+        /** Creau una editorial
+        @Entradas: url
+        @Salidas:--
          */
         @PostMapping("/admin/editorial")
         public void add(@RequestBody Editorial editorial) {
             editorialService.save(editorial);
         }
 
-        /*
-        Entradas:url
-        Salidas: Repuesta de que si puedo realizar el metodo
-        Función: Actualizar la información de una editorial dado un id
+        /** Actualizar la información de una editorial dado un id
+        @Entradas:url
+        @Salidas: Repuesta de que si puedo realizar el metodo
          */
         @PutMapping("/admin/editorial/{id}")
         public ResponseEntity<?> update(@RequestBody Editorial editorial, @PathVariable Integer id) {
@@ -74,10 +73,9 @@ public class EditorialController{
             }
         }
 
-        /*
-        Entradas: url
-        Salidas:--
-        Función: Eliminar una editorial según su id
+        /** Eliminar una editorial según su id
+        @Entradas: url
+        @Salidas:--
          */
         @DeleteMapping("/admin/editorial/{id}")
         public void delete(@PathVariable Integer id) {

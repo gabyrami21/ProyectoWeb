@@ -26,10 +26,9 @@ public class AuthenticationService {
     @Autowired
     private PasswordEncoder encoder; // Contraseña encriptada
 
-    /*
-    Entradas: Un username y una contraseña de tipo string
-    Salidas: Un usuario de la clase User con todos sus atributos
-    Función: Autorizar al usuario que esta iniciando sesión
+    /** Autorizar al usuario que esta iniciando sesión
+     * @param pwd contraseña de tipo string
+     * @param username nombre del usuario de tipo string
      */
     public UserAuth login(String username, String pwd) {
 
@@ -51,10 +50,8 @@ public class AuthenticationService {
     }
 
 
-    /*
-    Entradas: Un username de tipo string
-    Salidas: El token
-    Función: Este metodo captura el JWT para darselas a las credenciales del usuario con una secretkey
+    /** Este metodo captura el JWT para darselas a las credenciales del usuario con una secretkey
+     * @param username el nombre de usuario
      */
 
     private String getJWTToken(String username) {

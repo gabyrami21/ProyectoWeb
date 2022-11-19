@@ -13,7 +13,10 @@ import javax.persistence.Table;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-
+/** Representa el controlador de un libro
+ * @autor Gabriela Ramirez
+ * @autor Laura rozo *
+ */
 @CrossOrigin(origins="http://localhost:4200")
 @RestController
 public class BookController {
@@ -24,20 +27,18 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    /*
-    Entradas: url
-    Salidas: lista de libros
-    Función: lista todos los libros que hay
+    /** lista todos los libros que hay
+    @Entradas: url
+    @Salidas: lista de libros
      */
     @GetMapping("/public/books")
     public List<Book> list() {
         return bookService.listAll();
     }
 
-    /*
-    Entradas: url
-    Salidas: libro y Respuesta de encontrar el libro solicitado
-    Función: Obtiene un libro dado un id
+    /** Obtiene un libro dado un id
+    @Entradas: url
+    @Salidas: libro y Respuesta de encontrar el libro solicitado
      */
     @GetMapping("/public/book/{id}")
     public ResponseEntity<Book> get(@PathVariable Integer id) {
@@ -50,20 +51,18 @@ public class BookController {
         }
     }
 
-    /*
-    Entradas: url
-    Salidas: --
-    Función: Crear un nuevo libro
+    /** Crear un nuevo libro
+    @Salidas: --
+    @Función: Crear un nuevo libro
      */
     @PostMapping("/admin/books")
     public void add(@RequestBody Book book) {
         bookService.save(book);
     }
 
-    /*
-    Entradas: url
-    Salidas: libro y Respuesta de encontrar el libro solicitado
-    Función: Actualiza la información de un libro dado el id
+    /** Actualiza la información de un libro dado el id
+    @Entradas: url
+    @Salidas: libro y Respuesta de encontrar el libro solicitado
      */
     @PutMapping("/books/{id}")
     public ResponseEntity<?> update(@RequestBody Book book,@PathVariable Integer id){
@@ -83,20 +82,18 @@ public class BookController {
 
         }}
 
-    /*
-    Entradas:url
-    Salidas:--
-    Función: Eliminar un libro
+    /** Eliminar un libro
+    @Entradas:url
+    @Salidas:--
      */
     @DeleteMapping("/admin/book/{id}")
     public void delete(@PathVariable Integer id) {
         bookService.delete(id);
     }
 
-    /*
-    Entradas: url
-    Salidas: Respuesta de contenido sobre la entidad
-    Función: Obtiene una lista de libros dada una editorial
+    /** Obtiene una lista de libros dada una editorial
+    @Entradas: url
+    @Salidas: Respuesta de contenido sobre la entidad
      */
     @GetMapping("/books/editorial/{editorialId}")
     public ResponseEntity<List<Book>> listBooksByEditorialId(@PathVariable("editorialId") Integer id){
@@ -107,10 +104,9 @@ public class BookController {
         return ResponseEntity.ok(books);
     }
 
-    /*
-    Entradas: url
-    Salidas: Repuesta de contenido sobre la entidad
-    Función: Filtra los libros por nombre
+    /** Filtra los libros por nombre
+    @Entradas: url
+    @Salidas: Repuesta de contenido sobre la entidad
     */
     @Modifying
     @GetMapping("/book/{name}")

@@ -5,6 +5,10 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 
+/** Representa un usuario
+ * @autor Gabriela Ramirez
+ * @autor Laura Rozo
+ */
 @Entity
 @Table(name = "users")
 public class User {

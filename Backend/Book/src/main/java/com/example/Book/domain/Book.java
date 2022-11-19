@@ -1,7 +1,10 @@
 package com.example.Book.domain;
 
 import javax.persistence.*;
-
+/** Representa un lirbo
+ * @author Gabriela Ramirez
+ * @auto Laura Rozo
+ */
 @Entity
 @Table(name = "book")
 public class Book {
