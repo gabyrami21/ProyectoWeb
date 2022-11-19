@@ -1,7 +1,8 @@
 package com.example.User.controller;
 
-/*
-    Esta clase contiene las funciones que utiliza el microservicio de usuario
+/** Esta clase contiene las funciones que utiliza el microservicio de usuario
+ * @autor Gabriela Ramirez
+ * @autor Laura Rozo 
 */
 
 import com.example.User.domain.User;

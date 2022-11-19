@@ -79,6 +79,7 @@ public class JWTAuthorizationFilter extends OncePerRequestFilter {
         if (authenticationHeader == null || !authenticationHeader.startsWith(PREFIX))
             return false;
         return true;
+
     }
 
 }
